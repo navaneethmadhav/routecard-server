@@ -30,7 +30,7 @@ app.post('/add-product',(req,res)=>{
         req.body.production,req.body.sbm,req.body.casingSet,req.body.mainCasing,
         req.body.deliveryCasing,req.body.rotorPair,req.body.gear,req.body.pinion,
         req.body.dcMale,req.body.dcFemale,req.body.endCover,req.body.ptDate,
-        req.body.ptBy,req.body.ptRemark,req.body.assembly)
+        req.body.ptBy,req.body.ptRemark,req.body.assembly,req.body.currentDate)
     .then(result=>{
         res.status(result.statusCode).json(result)
     })
@@ -40,6 +40,28 @@ app.post('/add-product',(req,res)=>{
 
 app.delete('/delete-product/:id',(req,res)=>{
     dataservice.removeProduct(req.params.id)
+    .then(result=>{
+        res.status(result.statusCode).json(result)
+    })
+})
+
+// get an product details
+
+app.get('/get-an-product/:id',(req,res)=>{
+    dataservice.getProductDetail(req.params.id)
+    .then(result=>{
+        res.status(result.statusCode).json(result)
+    })
+})
+
+//update product data
+
+app.post('/update-product',(req,res)=>{
+    dataservice.updateProducts(req.body.id,req.body.pName,req.body.model,req.body.airEnd,
+        req.body.production,req.body.sbm,req.body.casingSet,req.body.mainCasing,
+        req.body.deliveryCasing,req.body.rotorPair,req.body.gear,req.body.pinion,
+        req.body.dcMale,req.body.dcFemale,req.body.endCover,req.body.ptDate,
+        req.body.ptBy,req.body.ptRemark,req.body.assembly,req.body.currentDate)
     .then(result=>{
         res.status(result.statusCode).json(result)
     })

@@ -19,10 +19,11 @@ const Product = mongoose.model('Product',
     delivery_clearance_male:String,
     delivery_clearance_female:String,
     end_cover_size:String,
-    pneumatic_testing_date:String,
+    pneumatic_testing_date:Object,
     pneumatic_testing_by:String,
     pneumatic_testing_remark:String,
-    assembly_by:String
+    assembly_by:String,
+    submit_date:String
 }
 )
 
